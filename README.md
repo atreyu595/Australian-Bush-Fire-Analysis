@@ -30,7 +30,7 @@ For NRT (Near Real Time) image data:
 
 For ARC (Standard Quality Image) image data:
 - Most high confidence fires took place in -30 (or between -20 to 10) latitude and 150 to 153 longitude.
-- Most low confidence fires took place more in latitudes between -20 to -10 longitude.
+- Most low confidence fires took place more in latitudes between -20 to -10.
 - Nominal fires took place generally in -30 latitude and 151 longitude. 
 
 The final product should be as follows:
