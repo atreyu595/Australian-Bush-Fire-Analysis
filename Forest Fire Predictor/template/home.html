@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--Set style-->
+    <style>
+        html {
+          height: 120%;
+        }
+        body {
+          margin:0;
+          padding:0;
+          font-family: sans-serif;
+          background: linear-gradient(#141e30, #243b55);
+        }
+        
+        p {
+            color: orange;
+            font-size: 19px;
+        }
+        
+        .box {
+          position: absolute;
+          top: 75%;
+          left: 50%;
+          width: 400px;
+          padding: 40px;
+          transform: translate(-50%, -50%);
+          background: rgba(0,0,0,.5);
+          box-sizing: border-box;
+          box-shadow: 0 15px 25px rgba(0,0,0,.6);
+          border-radius: 10px;
+        }
+        
+        .box h2 {
+          margin: 0 0 30px;
+          padding: 0;
+          color: orange;
+          text-align: center;
+        }
+        
+        .box .user-box {
+          position: relative;
+        }
+        
+        .box .user-box input {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 25px;
+          color: #fff;
+          margin-bottom: 30px;
+          border: none;
+          border-bottom: 1px solid #fff;
+          outline: none;
+          background: transparent;
+        }
+        .box .user-box label {
+          position: absolute;
+          top:0;
+          left: 0;
+          padding: 10px 0;
+          font-size: 16px;
+          color: #fff;
+          pointer-events: none;
+          transition: .5s;
+        }
+        .pred {
+            text-align:center;
+            font-size: 50px;
+            color: orange;
+
+        }
+        button.btn {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            outline: 0;
+            font-size: 25px;
+            padding: 7px;
+            background-color: orange;
+            border-color: black;
+            box-shadow: insert 1px 1px 5px rgba(0,0,0,0.3);
+        }
+        .submit {
+            text-align: center;
+        }
+        .title {
+            text-align: center;
+            font-size: 40px;
+            color: #FF5C4D;
+        }
+        div.title img {
+            display:inline-block;
+            vertical-align:middle;
+            text-align: center;
+        }        
+        
+        div.title h1 {
+            display:inline-block;
+            vertical-align:middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<!--Initialize body-->
+<body>
+    <!--create form layout-->
+    <div class = "title">
+            <h1>Bush Fire Severity Predictor</h1>
+            <img src="static/img/orange-icon.png" class="house"/>
+    </div>
+    <div class = "box">
+        <p class = "intro">The application attempts to predict the confidence level of the forest fire under Near Real Time data.</p>
+        <!--Wrap each inout for styling-->
+        <form action="{{url_for('predict_class')}}" method="post">
+            <div class="user-box">
+                <input type="text" id="latitude" name="latitude" placeholder="Latitude" required = "required">
+            </div>
+            <div class = "user-box">
+                <input type="text" id="longitude" name="longitude" placeholder="Longitude" required = "required">
+            </div>
+            <div class = "user-box">
+                <input type="text" id="bright_ti4" name="bright_ti4" placeholder="Brightness (ti4)" required = "required">
+            </div>
+            <div class = "user-box">
+                <input type="text" id="scan" name="scan" placeholder="Scan" required = "required">
+            </div>
+            <div class = "user-box">
+                <input type="text" id="track" name="track" placeholder="Track" required = "required">
+            </div>    
+             <div class = "user-box">
+                <input type="text" id="bright_ti5" name="bright_ti5" placeholder="Brightness (ti5)" required = "required">
+            </div>  
+             <div class = "user-box">
+                <input type="text" id="frp" name="frp" placeholder="FRP" required = "required">
+            </div>  
+            <div class = "submit">
+                <button type="submit" class = "btn" onclick = "return getInputValue()">Predict Confidence Class</button>
+            </div>
+        </form>
+    </div>
+    <!--Print prediction-->
+    <div id = "pred"><p class = "pred" id = "predict">{{prediction_text}}</p></div>
+</body>
+</html>
