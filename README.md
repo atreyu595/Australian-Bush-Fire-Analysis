@@ -3,6 +3,10 @@
 The following project was inspired from analyzing bush fire data collected from NASA's MODIS AND VIIRS fire detection algorithms.
 The technologies and dataset can be viewed here -> https://www.kaggle.com/carlosparadis/fires-from-space-australia-and-new-zeland/code
 
+The first part of the project is the EDA -> Australian Bush Fire Analysis.ipynb
+
+Second part is a working web application of the model which includes user prompts. Extra details are as below:
+
 The tree directory can be viewed below:
 
     /project
